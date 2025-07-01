@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include<vector>
+#include<iostream>
 class Magazin {
 protected:
 	std::string m_nume;
@@ -15,4 +16,6 @@ public:
 	int GetEtaj() const;
 	bool GetEDeschis() const;
 	int GetId() const;
+	virtual void Print(std::ostream& os) const = 0;
 };
+std::ostream& operator<<(std::ostream& os, const Magazin& m);

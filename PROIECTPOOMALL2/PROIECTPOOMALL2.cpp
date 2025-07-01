@@ -2,10 +2,12 @@
 //
 
 #include <iostream>
-
+#include "mall.h"
+#include "UI.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+    Mall mall;
+    RunUI(mall);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

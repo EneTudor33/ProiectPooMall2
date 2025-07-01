@@ -7,4 +7,5 @@ protected:
 public:
 	MagazinElectronice(std::string nume, int etaj, bool e_deschis);
 	std::vector<Gadget> GetCatalogGadget() const;
+	void Print(std::ostream& os) const override;
 };

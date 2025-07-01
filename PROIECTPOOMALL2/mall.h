@@ -16,4 +16,5 @@ private:
 	std::vector<std::shared_ptr<Magazin>> m_magazine;
 public:
 	void AddMagazin(std::shared_ptr<Magazin> magazin);
+	void AfisMagazin() const;
 };

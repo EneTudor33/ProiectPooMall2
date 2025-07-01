@@ -168,6 +168,7 @@
     <ClInclude Include="om.h" />
     <ClInclude Include="produs.h" />
     <ClInclude Include="securitate.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="vanzari_luna.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

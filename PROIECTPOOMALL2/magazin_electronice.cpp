@@ -10,3 +10,8 @@ std::vector<Gadget> MagazinElectronice::GetCatalogGadget() const
 {
 	return m_catalog_gadget;
 }
+void MagazinElectronice::Print(std::ostream& os) const
+{
+	os << "|Magazin Electronice| ID:" << m_id << "|Nume:" << m_nume << "| Etaj:" << m_etaj
+		<< "| E deschis:" << m_e_deschis << "|" << std::endl;
+}

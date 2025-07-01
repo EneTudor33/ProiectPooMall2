@@ -7,4 +7,5 @@ protected:
 public:
 	MagazinHaine(std::string nume, int etaj, bool e_deschis);
 	std::vector<Haina> GetCatalogHaine() const;
+	void Print(std::ostream& os) const override;
 };

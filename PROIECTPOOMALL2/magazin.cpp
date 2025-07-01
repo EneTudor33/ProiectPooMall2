@@ -21,3 +21,8 @@ int Magazin::GetId() const
 {
 	return m_id;
 }
+std::ostream& operator<<(std::ostream& os, const Magazin& m)
+{
+	m.Print(os);
+	return os;
+}

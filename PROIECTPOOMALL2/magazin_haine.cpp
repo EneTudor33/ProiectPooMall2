@@ -10,3 +10,8 @@ std::vector<Haina> MagazinHaine::GetCatalogHaine() const
 {
 	return m_catalog_haine;
 }
+void MagazinHaine::Print(std::ostream& os) const
+{
+	os << "|Magazin Haine| ID:" << m_id << "|Nume:" << m_nume << "| Etaj:" << m_etaj
+		<< "| E deschis:" << m_e_deschis << "|" << std::endl;
+}

@@ -137,5 +137,8 @@
     <ClInclude Include="vanzari_luna.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

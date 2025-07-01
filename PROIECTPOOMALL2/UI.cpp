@@ -1,4 +1,4 @@
-#include "mall.h"
+#include "UI.h"
 #include<iostream>
 #include<memory>
 
@@ -16,7 +16,7 @@ void ShowMagazinMenu()
 {
 	std::cout << "Ce ai dori sa gestionezi in privinta magazinelor?" << std::endl;
 	std::cout << "1.Adauga un magazin" << std::endl;
-	std::cout << "2.Sterge un magazin" << std::endl;
+	std::cout << "2.Afiseaza un magazin" << std::endl;
 }
 void MagazinMenu(Mall& mall)
 {
@@ -56,21 +56,25 @@ void MagazinMenu(Mall& mall)
 			case 1:
 			{
 				auto m = std::make_shared<MagazinMancare>(nume, etaj, deschis);
+				mall.AddMagazin(m);
 				break;
 			}
 			case 2:
 			{
 				auto m = std::make_shared<MagazinHaine>(nume, etaj, deschis);
+				mall.AddMagazin(m);
 				break;
 			}
 			case 3:
 			{
 				auto m = std::make_shared<MagazinElectronice>(nume, etaj, deschis);
+				mall.AddMagazin(m);
 				break;
 			}
 			case 4:
 			{
 				auto m = std::make_shared<Hipermarket>(nume, etaj, deschis);
+				mall.AddMagazin(m);
 				break;
 			}
 			case 0:
@@ -87,21 +91,21 @@ void MagazinMenu(Mall& mall)
 		}
 		case 2:
 		{
-
+			mall.AfisMagazin();
 			break;
 		}
 		}
 	}
 }
-void AngajatMenu(Mall mall)
+void AngajatMenu(Mall& mall)
 {
 
 }
-void ClientMenu(Mall mall)
+void ClientMenu(Mall& mall)
 {
 
 }
-void ProdusMenu(Mall mall)
+void ProdusMenu(Mall& mall)
 {
 
 }

@@ -6,3 +6,8 @@ MagazinMancare(nume, etaj, e_deschis)
 {
 
 }
+void Hipermarket::Print(std::ostream& os) const
+{
+	os << "|Hipermarket| ID:" << m_id << "|Nume:" << m_nume << "| Etaj:" << m_etaj
+		<< "| E deschis:" << m_e_deschis << "|" << std::endl;
+}

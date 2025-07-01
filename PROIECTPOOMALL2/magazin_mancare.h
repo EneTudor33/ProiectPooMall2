@@ -8,4 +8,5 @@ protected:
 public:
 	MagazinMancare(std::string nume, int etaj, bool e_deschis);
 	std::vector<Mancare> GetCatalogMancare() const;
+	void Print(std::ostream& os) const override;
 };
