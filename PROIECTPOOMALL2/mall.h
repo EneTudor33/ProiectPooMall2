@@ -17,5 +17,6 @@ private:
 public:
 	void AddMagazin(std::shared_ptr<Magazin> magazin);
 	void AfisMagazin() const;
+	std::vector<std::shared_ptr<Magazin>> GetMagazine() const;
 	std::shared_ptr<Magazin> GetMagazinID (int id) const;
 };

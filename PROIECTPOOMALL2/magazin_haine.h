@@ -13,4 +13,5 @@ public:
 	virtual void AfiseazaCatalog() override;
 	virtual void ModificaStoc(int id, int cantitate) override;
 	virtual int GetStoc(int id) override;
+	virtual int CalculValoareProduse() const override;
 };

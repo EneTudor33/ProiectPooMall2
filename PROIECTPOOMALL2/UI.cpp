@@ -10,6 +10,7 @@ void MainMenu()
 	std::cout << "2.Gestioneaza Cataloagele" << std::endl;
 	std::cout << "3.Gestioneaza Angajatii" << std::endl;
 	std::cout << "4.Gestioneaza Stocul" << std::endl;
+	std::cout << "5.Afiseaza valorea produselor" << std::endl;
 	std::cout << "0.Iesi din program" << std::endl;
 }
 void ShowStocMenu()
@@ -39,6 +40,12 @@ void ShowAngajatiMenu()
 	std::cout << "1. Adauga angajati in echipa unui magazin" << std::endl;
 	std::cout << "2. Afiseaza angajatii unui magazin" << std::endl;
 	std::cout << "0. Inapoi" << std::endl;
+}
+void ShowValoareProduseMenu()
+{
+	std::cout << "1.Afiseaza calculul valorii produselor unui magazin" << std::endl;
+	std::cout << "2.Afiseaza calculul valorii produselor intregului mall" << std::endl;
+	std::cout << "0.Inapoi" << std::endl;
 }
 void MagazinMenu(Mall& mall)
 {
@@ -300,6 +307,51 @@ void CataloageMenu(Mall& mall)
 	}
 	
 }
+void ValoareProduseMenu(Mall& mall)
+{
+	bool back = false;
+	while (!back)
+	{
+		ShowValoareProduseMenu();
+		int op;
+		std::cin >> op;
+		std::cin.ignore();
+		switch (op)
+		{
+		case 1:
+		{
+			mall.AfisMagazin();
+			std::cout << "Scrie ID-ul magazinului al carui valoare a produselor vrei sa il aflii" << std::endl;
+			int id_magazin;
+			std::cin >> id_magazin;
+			std::cin.ignore();
+			std::shared_ptr<Magazin> magazin=mall.GetMagazinID(id_magazin);
+			std::cout << "Valoarea produselor din magazinul cerut este de " << magazin->CalculValoareProduse() << " lei" << std::endl;
+			break;
+		}
+		case 2:
+		{
+			int suma = 0;
+			std::vector<std::shared_ptr<Magazin>> magazine = mall.GetMagazine();
+			for (const auto& m : magazine)
+			{
+				suma = suma + m->CalculValoareProduse();
+			}
+			std::cout << "Valoarea produselor din mall este de " << suma << " lei" << std::endl;
+			break;
+		}
+		case 0:
+		{
+			back = true;
+			break;
+		}
+		default:
+		{
+			std::cout << "Optiune invalida!" << std::endl;
+		}
+		}
+	}
+}
 void RunUI(Mall& mall)
 {
 	bool back = false;
@@ -329,6 +381,11 @@ void RunUI(Mall& mall)
 		case 4:
 		{
 			StocMenu(mall);
+			break;
+		}
+		case 5:
+		{
+			ValoareProduseMenu(mall);
 			break;
 		}
 		case 0:

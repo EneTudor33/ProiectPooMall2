@@ -25,3 +25,7 @@ std::shared_ptr<Magazin> Mall::GetMagazinID(int id) const
 	}
 	return nullptr;
 }
+std::vector<std::shared_ptr<Magazin>> Mall::GetMagazine() const
+{
+	return m_magazine;
+}
