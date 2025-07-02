@@ -12,4 +12,5 @@ public:
 	int GetMemorie() const;
 	int GetGarantie() const;
 	double PretUnitate() const override;
+	bool EsteReturnabil() const override;
 };

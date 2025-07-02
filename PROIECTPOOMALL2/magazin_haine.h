@@ -14,4 +14,8 @@ public:
 	virtual void ModificaStoc(int id, int cantitate) override;
 	virtual int GetStoc(int id) override;
 	virtual double CalculValoareProduse() const override;
+	virtual bool VindeProdus(int id_produs, int cantitate) override;
+	virtual double GetPretProdus(int id) const override;
+	virtual void AdaugaStoc(int id, int cantitate) override;
+	virtual Produs* CautaProdus(int id) override;
 };

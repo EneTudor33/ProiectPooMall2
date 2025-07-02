@@ -26,3 +26,7 @@ int Mancare::GetGramaj() const
 {
 	return m_gramaj;
 }
+bool Mancare::EsteReturnabil() const
+{
+	return false;
+}

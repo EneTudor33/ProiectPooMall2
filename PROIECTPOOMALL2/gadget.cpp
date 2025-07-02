@@ -26,3 +26,7 @@ double Gadget::PretUnitate() const
 {
 	return m_pret + m_pret * 0.19;
 }
+bool Gadget::EsteReturnabil() const
+{
+	return true;
+}

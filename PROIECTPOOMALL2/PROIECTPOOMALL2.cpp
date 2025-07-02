@@ -6,7 +6,7 @@
 #include "UI.h"
 int main()
 {
-    Mall mall;
+    Mall& mall = Mall::getInstance();
     RunUI(mall);
 }
 

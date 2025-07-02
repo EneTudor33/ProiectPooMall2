@@ -75,6 +75,12 @@
     <ClCompile Include="UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tranzactie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="functii_data.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abonament.h">
@@ -134,10 +140,19 @@
     <ClInclude Include="securitate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vanzari_luna.h">
+    <ClInclude Include="UI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UI.h">
+    <ClInclude Include="tranzactie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="data_calendaristica.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="returnabil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="functii_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

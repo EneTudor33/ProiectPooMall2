@@ -1,9 +1,5 @@
 #include "casier.h"
 
-std::vector<VanzariLuna> Casier::GetVanzariLunare() const
-{
-	return m_vanzari_lunare;
-}
 int Casier::GetNrCasa() const
 {
 	return m_nr_casa;

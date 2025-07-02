@@ -26,3 +26,7 @@ int Bautura::GetGramaj() const
 {
 	return m_gramaj;
 }
+bool Bautura::EsteReturnabil() const
+{
+	return false;
+}

@@ -3,6 +3,7 @@
 #include "bucatar.h"
 #include "securitate.h"
 #include "manager.h"
+#include "produs.h"
 #include<string>
 #include<vector>
 #include<iostream>
@@ -32,5 +33,9 @@ public:
 	virtual void ModificaStoc(int id,int cantitate) = 0;
 	virtual int GetStoc(int id) = 0;
 	virtual double CalculValoareProduse() const  = 0;
+	virtual bool VindeProdus(int id_produs, int cantitate) = 0;
+	virtual double GetPretProdus(int id) const = 0;
+	virtual void   AdaugaStoc(int id, int cant) = 0;
+	virtual Produs* CautaProdus(int id) = 0;
 };
 std::ostream& operator<<(std::ostream& os, const Magazin& m);

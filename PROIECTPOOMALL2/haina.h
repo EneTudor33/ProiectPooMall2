@@ -13,4 +13,5 @@ public:
 	std::string GetMarime() const;
 	std::string GetMaterial() const;
 	double PretUnitate() const override;
+	bool EsteReturnabil() const override;
 };

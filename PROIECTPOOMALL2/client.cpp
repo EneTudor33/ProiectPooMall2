@@ -36,7 +36,7 @@ std::ostream& operator<<(std::ostream& os, const Client& c)
 		<< "|Credit:" << c.GetCredit() << std::endl;
 	return os;
 }
-void Client::SetCredit(int credit)
+void Client::SetCredit(double credit)
 {
 	m_credit = credit;
 }

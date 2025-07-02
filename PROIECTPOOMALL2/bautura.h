@@ -12,4 +12,5 @@ public:
 	bool GetEstePet() const;
 	int GetGramaj() const;
 	double PretUnitate() const override;
+	bool EsteReturnabil() const override;
 };

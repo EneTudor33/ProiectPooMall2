@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
-class Produs {
+#include "returnabil.h"
+class Produs :public Returnabil {
 protected:
 	const int m_id;
 	static int m_next_id;
@@ -16,4 +17,5 @@ public:
 	double GetPret() const;
 	int GetStoc() const;
 	void SetStoc(int cantitate);
+	bool EsteReturnabil() const override;
 };

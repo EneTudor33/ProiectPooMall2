@@ -26,3 +26,7 @@ int Produs::GetStoc() const
 {
 	return m_cantitate_stoc;
 }
+bool Produs::EsteReturnabil() const
+{
+	return false;
+}

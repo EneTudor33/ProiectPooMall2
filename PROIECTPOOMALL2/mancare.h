@@ -13,4 +13,5 @@ public:
 	std::vector<std::string> GetAlergeni() const;
 	double PretUnitate() const override;
 	int GetGramaj() const;
+	bool EsteReturnabil() const override;
 };

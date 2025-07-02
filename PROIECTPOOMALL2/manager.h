@@ -4,7 +4,6 @@
 
 class Manager :public Angajat {
 private:
-	std::vector<int> m_echipa;//retinem id-urile angajatorilor din echipa sa 
 	bool m_masina_serviciu;
 	double m_target_vanzari_echipa;
 public:

@@ -26,3 +26,7 @@ double Haina::PretUnitate() const
 {
 	return m_pret + m_pret * 0.19;
 }
+bool Haina::EsteReturnabil() const
+{
+	return true;
+}

@@ -4,7 +4,7 @@
 #include<string>
 class Bucatar :public Angajat {
 private:
-	int m_ani_experienta; //daca are experienta mai mare il platim mai mult
+	int m_ani_experienta;
 	int m_portii_zilnice;
 public:
 	Bucatar(std::string nume, std::string prenume, int varsta, std::string email,

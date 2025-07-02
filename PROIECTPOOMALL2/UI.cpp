@@ -12,6 +12,7 @@ void MainMenu()
 	std::cout << "4.Gestioneaza Stocul" << std::endl;
 	std::cout << "5.Afiseaza valorea produselor" << std::endl;
 	std::cout << "6.Gestioneaza clientii" << std::endl;
+	std::cout << "7.Gestioneaza tranzactii" << std::endl;
 	std::cout << "0.Iesi din program" << std::endl;
 }
 void ShowStocMenu()
@@ -54,6 +55,14 @@ void ShowClientiMenu()
 	std::cout << "1.Creaza un client" << std::endl;
 	std::cout << "2.Afiseaza toti clientii" << std::endl;
 	std::cout << "3.Schimba balanta unui client" << std::endl;
+	std::cout << "0.Inapoi" << std::endl;
+}
+void ShowTranzactieMenu()
+{
+	std::cout << "1.Cumpara un produs" << std::endl;
+	std::cout << "2.Returneaza un produs" << std::endl;
+	std::cout << "3.Afiseaza vanzarile totale ale unui magazin" << std::endl;
+	std::cout << "0.Inapoi" << std::endl;
 }
 void MagazinMenu(Mall& mall)
 {
@@ -444,6 +453,7 @@ void ClientiMenu(Mall& mall)
 		case 0:
 		{
 			back = true;
+			break;
 		}
 		default:
 		{
@@ -451,6 +461,98 @@ void ClientiMenu(Mall& mall)
 		}
 		}
 
+	}
+}
+void TranzactieMenu(Mall& mall)
+{
+	bool back = false;
+	while (!back)
+	{
+		ShowTranzactieMenu();
+		int op;
+		std::cin >> op;
+		std::cin.ignore();
+		switch (op)
+		{
+		case 1:
+		{
+			mall.AfisMagazin();
+			std::cout << "Scrie id-ul magazinului din care vrei sa cumperi" << std::endl;
+			int id_magazin, id_client, id_produs, cantitate, zi, luna, an;
+			std::cin >> id_magazin;
+			std::cin.ignore();
+			mall.ShowClient();
+			std::cout << "Scrie id-ul clientului care cumpara" << std::endl;
+			std::cin >> id_client;
+			std::cin.ignore();
+			std::shared_ptr<Magazin> magazin = mall.GetMagazinID(id_magazin);
+			magazin->AfiseazaCatalog();
+			std::cout << "Scrie id-ul produsului cumparat" << std::endl;
+			std::cin >> id_produs;
+			std::cin.ignore();
+			std::cout << "Cantitate:" << std::endl;
+			std::cin >> cantitate;
+			std::cin.ignore();
+			std::cout << "Ziua cumparaturii:" << std::endl;
+			std::cin >> zi;
+			std::cin.ignore();
+			std::cout << "Luna cumparaturii:" << std::endl;
+			std::cin >> luna;
+			std::cin.ignore();
+			std::cout << "Anul cumparaturii:" << std::endl;
+			std::cin >> an;
+			std::cin.ignore();
+			if (mall.AddTranzactie(id_magazin, id_client, id_produs, cantitate, zi, luna, an))
+				std::cout << "Tranzactie procesata cu succes!" << std::endl;
+			break;
+		}
+		case 2:
+		{
+			mall.AfisMagazin();
+			std::cout << "ID Magazin:" << std::endl;
+			int id_magazin;
+			std::cin >> id_magazin;
+			std::cin.ignore();
+			std::vector<Tranzactie> tranzactii = mall.GetTranzactiiMagazin(id_magazin);
+			if (tranzactii.empty())
+			{
+				std::cout << "Magazinul nu are tranzactii!" << std::endl;
+			}
+			for (int i = 0;i < (int)tranzactii.size(); i++)
+			{
+				std::cout << "|ID Tranzactie:" << i << "|ID Produs:" << tranzactii[i].GetIdProdus() << "|Cantitate:"
+					<< tranzactii[i].GetCantitate() << "|Suma:" << tranzactii[i].GetCantitate() << std::endl;
+			}
+			std::cout << "Id-ul tranzactiei care o returnam:" << std::endl;
+			int id_tranzactie;
+			std::cin >> id_tranzactie;
+			std::cin.ignore();
+			if (mall.ReturTranzactie(id_magazin, id_tranzactie))
+				std::cout << "Tranzactie returnata cu succes!" << std::endl;
+			else
+				std::cout << "Eroare!" << std::endl;
+			break;
+		}
+		case 3:
+		{
+			mall.AfisMagazin();
+			std::cout << "Id magazin:" << std::endl;
+			int id_magazin;
+			std::cin >> id_magazin;
+			std::cin.ignore();
+			std::cout<<"Magazinul a avut vanzari in valoare de "<<mall.GetVanzariMagazin(id_magazin)
+			<<" lei"<<std::endl;
+		}
+		case 0:
+		{
+			back = true;
+			break;
+		}
+		default:
+		{
+			std::cout << "Optiune invalida!" << std::endl;
+		}
+		}
 	}
 }
 void RunUI(Mall& mall)
@@ -492,6 +594,11 @@ void RunUI(Mall& mall)
 		case 6:
 		{
 			ClientiMenu(mall);
+			break;
+		}
+		case 7:
+		{
+			TranzactieMenu(mall);
 			break;
 		}
 		case 0:

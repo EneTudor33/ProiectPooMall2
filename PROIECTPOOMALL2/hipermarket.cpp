@@ -469,3 +469,138 @@ double Hipermarket::CalculValoareProduse() const
 	}
 	return suma;
 }
+bool Hipermarket::VindeProdus(int id_produs, int cantitate)
+{
+	if (cantitate < 0)
+		return false;
+	for (auto& g : m_catalog_mancare)
+	{
+		if (g.GetId() == id_produs)
+		{
+			int stoc = g.GetStoc();
+			if (stoc < cantitate)
+				return false;
+			g.SetStoc(stoc - cantitate);
+			return true;
+		}
+	}
+	for (auto& g : m_catalog_bauturi)
+	{
+		if (g.GetId() == id_produs)
+		{
+			int stoc = g.GetStoc();
+			if (stoc < cantitate)
+				return false;
+			g.SetStoc(stoc - cantitate);
+			return true;
+		}
+	}
+	for (auto& g : m_catalog_gadget)
+	{
+		if (g.GetId() == id_produs)
+		{
+			int stoc = g.GetStoc();
+			if (stoc < cantitate)
+				return false;
+			g.SetStoc(stoc - cantitate);
+			return true;
+		}
+	}
+	for (auto& g : m_catalog_haine)
+	{
+		if (g.GetId() == id_produs)
+		{
+			int stoc = g.GetStoc();
+			if (stoc < cantitate)
+				return false;
+			g.SetStoc(stoc - cantitate);
+			return true;
+		}
+	}
+	return false;
+}
+double Hipermarket::GetPretProdus(int id) const
+{
+	for (const auto& g : m_catalog_mancare)
+	{
+		if (g.GetId() == id)
+		{
+			return g.PretUnitate();
+		}
+	}
+	for (const auto& g : m_catalog_bauturi)
+	{
+		if (g.GetId() == id)
+		{
+			return g.PretUnitate();
+		}
+	}
+	for (const auto& g : m_catalog_gadget)
+	{
+		if (g.GetId() == id)
+		{
+			return g.PretUnitate();
+		}
+	}
+	for (const auto& g : m_catalog_haine)
+	{
+		if (g.GetId() == id)
+		{
+			return g.PretUnitate();
+		}
+	}
+	return -1;
+}
+void Hipermarket::AdaugaStoc(int id, int cantitate)
+{
+	if (cantitate <= 0)
+		return;
+	for (auto& g : m_catalog_mancare)
+	{
+		if (g.GetId() == id)
+		{
+			g.SetStoc(g.GetStoc() + cantitate);
+			break;
+		}
+	}
+	for (auto& g : m_catalog_bauturi)
+	{
+		if (g.GetId() == id)
+		{
+			g.SetStoc(g.GetStoc() + cantitate);
+			break;
+		}
+	}
+	for (auto& g : m_catalog_haine)
+	{
+		if (g.GetId() == id)
+		{
+			g.SetStoc(g.GetStoc() + cantitate);
+			break;
+		}
+	}
+	for (auto& g : m_catalog_gadget)
+	{
+		if (g.GetId() == id)
+		{
+			g.SetStoc(g.GetStoc() + cantitate);
+			break;
+		}
+	}
+}
+Produs* Hipermarket::CautaProdus(int id)
+{
+	for (auto& g : m_catalog_mancare)
+		if (g.GetId() == id)
+			return &g;
+	for (auto& g : m_catalog_bauturi)
+		if (g.GetId() == id)
+			return &g;
+	for (auto& g : m_catalog_gadget)
+		if (g.GetId() == id)
+			return &g;
+	for (auto& g : m_catalog_haine)
+		if (g.GetId() == id)
+			return &g;
+	return nullptr;
+}
