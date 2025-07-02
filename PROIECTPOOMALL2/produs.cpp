@@ -18,3 +18,11 @@ double Produs::GetPret() const
 {
 	return m_pret;
 }
+void Produs::SetStoc(int cantitate)
+{
+	m_cantitate_stoc = cantitate;
+}
+int Produs::GetStoc() const
+{
+	return m_cantitate_stoc;
+}

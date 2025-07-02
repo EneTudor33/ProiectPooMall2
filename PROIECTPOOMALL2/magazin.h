@@ -29,5 +29,7 @@ public:
 	virtual void AfiseazaCatalog() = 0;
 	virtual void AdaugaAngajat();
 	virtual void AfiseazaAngajat();
+	virtual void ModificaStoc(int id,int cantitate) = 0;
+	virtual int GetStoc(int id) = 0;
 };
 std::ostream& operator<<(std::ostream& os, const Magazin& m);

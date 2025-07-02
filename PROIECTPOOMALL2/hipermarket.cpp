@@ -369,3 +369,82 @@ void Hipermarket::AfiseazaAngajat()
 		}
 	}
 }
+void Hipermarket::ModificaStoc(int id, int cantitate)
+{
+	bool found = false;
+	for (auto& g : m_catalog_bauturi)
+	{
+		if (g.GetId() == id)
+		{
+			g.SetStoc(cantitate);
+			found = true;
+			break;
+		}
+	}
+	if (!found)
+	{
+		for (auto& g : m_catalog_mancare)
+		{
+			if (g.GetId() == id)
+			{
+				g.SetStoc(cantitate);
+				found = true;
+				break;
+			}
+		}
+	}
+	if (!found)
+	{
+		for (auto& g : m_catalog_haine)
+		{
+			if (g.GetId() == id)
+			{
+				g.SetStoc(cantitate);
+				found = true;
+				break;
+			}
+		}
+	}
+	if (!found)
+	{
+		for (auto& g : m_catalog_gadget)
+		{
+			if (g.GetId() == id)
+			{
+				g.SetStoc(cantitate);
+				found = true;
+				break;
+			}
+		}
+	}
+	if (!found)
+	{
+		std::cout << "Produsul nu exista!" << std::endl;
+	}
+}
+int Hipermarket::GetStoc(int id)
+{
+	bool found = false;
+	for (auto& g : m_catalog_mancare)
+	{
+		if (g.GetId() == id)
+			return g.GetStoc();
+	}
+	for (auto& g : m_catalog_bauturi)
+	{
+		if (g.GetId() == id)
+			return g.GetStoc();
+	}
+	for (auto& g : m_catalog_haine)
+	{
+		if (g.GetId() == id)
+			return g.GetStoc();
+	}
+	for (auto& g : m_catalog_gadget)
+	{
+		if (g.GetId() == id)
+			return g.GetStoc();
+	}
+	std::cout << "Produsul nu exista!" << std::endl;
+	return -1;
+}

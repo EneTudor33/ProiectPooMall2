@@ -11,4 +11,6 @@ public:
 	virtual int Tip() const override;
 	virtual void AdaugaProdus() override;
 	virtual void AfiseazaCatalog() override;
+	virtual void ModificaStoc(int id, int cantitate) override;
+	virtual int GetStoc(int id) override;
 };

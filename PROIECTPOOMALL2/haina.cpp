@@ -3,6 +3,7 @@
 Haina::Haina(std::string denumire, double pret, std::string gen, std::string marime,
 	std::string material) :Produs()
 {
+	m_cantitate_stoc = 0;
 	m_denumire = denumire;
 	m_pret = pret;
 	m_gen = gen;

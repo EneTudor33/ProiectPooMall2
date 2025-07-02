@@ -9,8 +9,15 @@ void MainMenu()
 	std::cout << "1.Gestioneaza Magazinele" << std::endl;
 	std::cout << "2.Gestioneaza Cataloagele" << std::endl;
 	std::cout << "3.Gestioneaza Angajatii" << std::endl;
-	std::cout << "4.Gestioneaza Produsele" << std::endl;
+	std::cout << "4.Gestioneaza Stocul" << std::endl;
 	std::cout << "0.Iesi din program" << std::endl;
+}
+void ShowStocMenu()
+{
+	std::cout << "Ce ai dori sa gestionezi in privinta stocului?" << std::endl;
+	std::cout << "1.Schimba stocul unui produs al unui magazin" << std::endl;
+	std::cout << "2.Afiseaza stocul unui produs al unui magazin" << std::endl;
+	std::cout << "0. Inapoi" << std::endl;
 }
 void ShowMagazinMenu()
 {
@@ -175,13 +182,67 @@ void AngajatMenu(Mall& mall)
 		}
 	}
 }
-void ClientMenu(Mall& mall)
+void StocMenu(Mall& mall)
 {
-
-}
-void ProdusMenu(Mall& mall)
-{
-
+	bool back = false;
+	while (!back)
+	{
+		ShowStocMenu();
+		int op;
+		std::cin >> op;
+		std::cin.ignore();
+		switch (op)
+		{
+		case 1:
+		{
+			mall.AfisMagazin();
+			std::cout << "Scrie id-ul magazinului caruia vrei sa ii modifici un produs din stoc" << std::endl;
+			int id_magazin;
+			std::cin >> id_magazin;
+			std::cin.ignore();
+			std::shared_ptr<Magazin> magazin=mall.GetMagazinID(id_magazin);
+			magazin->AfiseazaCatalog();
+			std::cout << "Scrie id-ul produsului al carui stoc vrei sa il modifici" << std::endl;
+			int id_produs;
+			std::cin >> id_produs;
+			std::cin.ignore();
+			std::cout << "Scrie noua cantitate" << std::endl;
+			int cantitate;
+			std::cin >> cantitate;
+			std::cin.ignore();
+			magazin->ModificaStoc(id_produs, cantitate);
+			break;
+		}
+		case 2:
+		{
+			mall.AfisMagazin();
+			std::cout << "Scrie id-ul magazinului caruia vrei sa ii verifici un produs din stoc" << std::endl;
+			int id_magazin;
+			std::cin >> id_magazin;
+			std::cin.ignore();
+			std::shared_ptr<Magazin> magazin = mall.GetMagazinID(id_magazin);
+			magazin->AfiseazaCatalog();
+			std::cout << "Scrie id-ul produsului al carui stoc vrei sa il verifici" << std::endl;
+			int id_produs;
+			std::cin >> id_produs;
+			std::cin.ignore();
+			int stoc=magazin->GetStoc(id_produs);
+			if (stoc>=0)
+			{
+				std::cout << "Produsul mai are in stoc " << stoc << " unitati" << std::endl;
+			}
+			break;
+		}
+		case 0:
+		{
+			back = true;
+		}
+		default:
+		{
+			std::cout << "Optiune invalida!" << std::endl;
+		}
+		}
+	}
 }
 void CataloageMenu(Mall& mall)
 {
@@ -267,7 +328,7 @@ void RunUI(Mall& mall)
 		}
 		case 4:
 		{
-			ProdusMenu(mall);
+			StocMenu(mall);
 			break;
 		}
 		case 0:

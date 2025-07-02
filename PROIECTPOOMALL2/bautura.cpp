@@ -7,6 +7,7 @@ double Bautura::GetProcentajAlcool() const
 Bautura::Bautura(std::string denumire, double pret,
 	double procentaj_alcool, int gramaj, bool este_pet) :Produs()
 {
+	m_cantitate_stoc = 0;
 	m_denumire = denumire;
 	m_pret = pret;
 	m_procentaj_alcool = procentaj_alcool;

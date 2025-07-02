@@ -3,6 +3,7 @@
 Gadget::Gadget(std::string denumire, double pret, int baterie, int memorie,
 	int garantie) :Produs()
 {
+	m_cantitate_stoc = 0;
 	m_denumire = denumire;
 	m_pret = pret;
 	m_baterie = baterie;

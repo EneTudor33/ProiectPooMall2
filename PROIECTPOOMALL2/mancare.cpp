@@ -3,6 +3,7 @@
 Mancare::Mancare(std::string denumire, double pret, int gramaj,
 	std::vector<std::string> ingrediente, std::vector<std::string> alergeni) :Produs()
 {
+	m_cantitate_stoc = 0;
 	m_denumire = denumire;
 	m_pret = pret;
 	m_gramaj = gramaj;
