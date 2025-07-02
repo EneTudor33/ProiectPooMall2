@@ -17,5 +17,8 @@ public:
 	bool GetEDeschis() const;
 	int GetId() const;
 	virtual void Print(std::ostream& os) const = 0;
+	virtual int Tip() const = 0;
+	virtual void AdaugaProdus() = 0;
+	virtual void AfiseazaCatalog() = 0;
 };
 std::ostream& operator<<(std::ostream& os, const Magazin& m);

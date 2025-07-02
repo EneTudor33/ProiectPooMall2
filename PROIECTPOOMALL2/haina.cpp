@@ -1,11 +1,10 @@
 #include "haina.h"
 
-Haina::Haina(std::string denumire, double pret, int cantitate, std::string gen, std::string marime,
+Haina::Haina(std::string denumire, double pret, std::string gen, std::string marime,
 	std::string material) :Produs()
 {
 	m_denumire = denumire;
 	m_pret = pret;
-	m_cantitate = cantitate;
 	m_gen = gen;
 	m_marime = marime;
 	m_material = material;

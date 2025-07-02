@@ -16,3 +16,12 @@ void Mall :: AfisMagazin() const
 		}
 	}
 }
+std::shared_ptr<Magazin> Mall::GetMagazinID(int id) const
+{
+	for (const auto& m : m_magazine)
+	{
+		if (m->GetId() == id)
+			return m;
+	}
+	return nullptr;
+}

@@ -7,7 +7,7 @@ private:
 	bool m_este_pet;
 public:
 	double GetProcentajAlcool() const;
-	Bautura(std::string denumire, double pret, int cantitate, double procentaj_alcool,
+	Bautura(std::string denumire, double pret, double procentaj_alcool,
 		int gramaj, bool este_pet);
 	bool GetEstePet() const;
 	int GetGramaj() const;

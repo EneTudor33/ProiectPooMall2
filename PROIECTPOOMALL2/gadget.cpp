@@ -1,11 +1,10 @@
 #include "gadget.h"
 
-Gadget::Gadget(std::string denumire, double pret, int cantitate, int baterie, int memorie,
+Gadget::Gadget(std::string denumire, double pret, int baterie, int memorie,
 	int garantie) :Produs()
 {
 	m_denumire = denumire;
 	m_pret = pret;
-	m_cantitate = cantitate;
 	m_baterie = baterie;
 	m_memorie = memorie;
 	m_garantie = garantie;

@@ -7,7 +7,7 @@ private:
 	std::string m_marime;
 	std::string m_material;
 public:
-	Haina(std::string denumire, double pret, int cantitate, std::string gen, std::string marime,
+	Haina(std::string denumire, double pret, std::string gen, std::string marime,
 		std::string material);
 	std::string GetGen() const;
 	std::string GetMarime() const;

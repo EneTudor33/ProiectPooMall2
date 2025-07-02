@@ -1,11 +1,10 @@
 #include "mancare.h"
 
-Mancare::Mancare(std::string denumire, double pret, int cantitate, int gramaj,
+Mancare::Mancare(std::string denumire, double pret, int gramaj,
 	std::vector<std::string> ingrediente, std::vector<std::string> alergeni) :Produs()
 {
 	m_denumire = denumire;
 	m_pret = pret;
-	m_cantitate = cantitate;
 	m_gramaj = gramaj;
 	m_ingrediente = ingrediente;
 	m_alergeni = alergeni;

@@ -18,7 +18,3 @@ double Produs::GetPret() const
 {
 	return m_pret;
 }
-int Produs::GetCantitate() const
-{
-	return m_cantitate;
-}

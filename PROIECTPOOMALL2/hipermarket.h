@@ -7,4 +7,7 @@ class Hipermarket :public MagazinElectronice, public MagazinHaine, public Magazi
 public:
 	Hipermarket(std::string nume, int etaj, bool e_deschis);
 	void Print(std::ostream& os) const override;
+	virtual int Tip() const override;
+	virtual void AdaugaProdus() override;
+	virtual void AfiseazaCatalog() override;
 };

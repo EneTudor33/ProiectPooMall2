@@ -7,7 +7,7 @@ private:
 	std::vector<std::string> m_ingrediente;
 	std::vector<std::string> m_alergeni;
 public:
-	Mancare(std::string denumire, double pret, int cantitate, int gramaj, std::vector<std::string> ingrediente,
+	Mancare(std::string denumire, double pret, int gramaj, std::vector<std::string> ingrediente,
 		std::vector<std::string> alergeni);
 	std::vector<std::string> GetIngrediente() const;
 	std::vector<std::string> GetAlergeni() const;

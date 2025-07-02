@@ -6,7 +6,6 @@ protected:
 	static int m_next_id;
 	std::string m_denumire;
 	double m_pret;
-	int m_cantitate;
 public:
 	Produs();
 	virtual ~Produs() = default;
@@ -14,5 +13,4 @@ public:
 	int GetId() const;
 	std::string GetDenumire() const;
 	double GetPret() const;
-	int GetCantitate() const;
 };

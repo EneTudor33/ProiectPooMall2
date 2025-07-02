@@ -6,7 +6,7 @@ private:
 	int m_memorie;
 	int m_garantie;
 public:
-	Gadget(std::string denumire, double pret, int cantitate, int baterie, int memorie,
+	Gadget(std::string denumire, double pret, int baterie, int memorie,
 		int garantie);
 	int GetBaterie() const;
 	int GetMemorie() const;
