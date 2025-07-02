@@ -11,6 +11,7 @@ void MainMenu()
 	std::cout << "3.Gestioneaza Angajatii" << std::endl;
 	std::cout << "4.Gestioneaza Stocul" << std::endl;
 	std::cout << "5.Afiseaza valorea produselor" << std::endl;
+	std::cout << "6.Gestioneaza clientii" << std::endl;
 	std::cout << "0.Iesi din program" << std::endl;
 }
 void ShowStocMenu()
@@ -46,6 +47,13 @@ void ShowValoareProduseMenu()
 	std::cout << "1.Afiseaza calculul valorii produselor unui magazin" << std::endl;
 	std::cout << "2.Afiseaza calculul valorii produselor intregului mall" << std::endl;
 	std::cout << "0.Inapoi" << std::endl;
+}
+void ShowClientiMenu()
+{
+	std::cout << "Ce vrei sa gestionezi in privinta clientilor?" << std::endl;
+	std::cout << "1.Creaza un client" << std::endl;
+	std::cout << "2.Afiseaza toti clientii" << std::endl;
+	std::cout << "3.Schimba balanta unui client" << std::endl;
 }
 void MagazinMenu(Mall& mall)
 {
@@ -352,6 +360,99 @@ void ValoareProduseMenu(Mall& mall)
 		}
 	}
 }
+void ClientiMenu(Mall& mall)
+{
+	bool back = false;
+	while (!back)
+	{
+		ShowClientiMenu();
+		int op;
+		std::cin >> op;
+		std::cin.ignore();
+		switch (op)
+		{
+		case 1:
+		{
+			std::string nume, prenume, email;
+			int varsta;
+			double credit;
+			std::cout << "Nume:" << std::endl;
+			std::getline(std::cin, nume);
+			std::cout << "Prenume:" << std::endl;
+			std::getline(std::cin, prenume);
+			std::cout << "Email:" << std::endl;
+			std::getline(std::cin, email);
+			std::cout << "Varsta:" << std::endl;
+			std::cin >> varsta;
+			std::cin.ignore();
+			std::cout << "Credit:" << std::endl;
+			std::cin >> credit;
+			std::cin.ignore();
+			bool optiune;
+			std::cout << "Detine abonament?0/1" << std::endl;
+			std::cin >> optiune;
+			std::cin.ignore();
+			if (optiune == 0)
+			{
+				Client client(nume, prenume, varsta, email, credit);
+				mall.AddClient(client);
+			}
+			else
+			{
+				std::string denumire_abonament;
+				int discount;
+				std::cout << "Denumire abonament:" << std::endl;
+				std::getline(std::cin, denumire_abonament);
+				std::cout << "Discount:" << std::endl;
+				std::cin >> discount;
+				std::cin.ignore();
+				Abonament abonament;
+				abonament.discount = discount;
+				abonament.nume_abonament = denumire_abonament;
+				Client client(nume, prenume, varsta, email, abonament,credit);
+				mall.AddClient(client);
+			}
+			break;
+		}
+		case 2:
+		{
+			mall.ShowClient();
+			break;
+		}
+		case 3:
+		{
+			mall.ShowClient();
+			std::cout << "Scrie ID-ul clientului al carui credit vrei sa il schimbi" << std::endl;
+			int id;
+			std::cin >> id;
+			std::cin.ignore();
+			Client* client=mall.GetClientID(id);
+			if (client)
+			{
+				std::cout << "Credit nou:" << std::endl;
+				double credit;
+				std::cin >> credit;
+				std::cin.ignore();
+				client->SetCredit(credit);
+			}
+			else
+			{
+				std::cout << "Clientul nu exista!" << std::endl;
+			}
+			break;
+		}
+		case 0:
+		{
+			back = true;
+		}
+		default:
+		{
+			std::cout << "Optiune invalida!" << std::endl;
+		}
+		}
+
+	}
+}
 void RunUI(Mall& mall)
 {
 	bool back = false;
@@ -388,9 +489,15 @@ void RunUI(Mall& mall)
 			ValoareProduseMenu(mall);
 			break;
 		}
+		case 6:
+		{
+			ClientiMenu(mall);
+			break;
+		}
 		case 0:
 		{
 			back = true;
+			break;
 		}
 		default:
 		{

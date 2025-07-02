@@ -348,9 +348,9 @@ int MagazinMancare::GetStoc(int id)
 	std::cout << "Produsul nu exista!" << std::endl;
 	return -1;
 }
-int MagazinMancare::CalculValoareProduse() const
+double MagazinMancare::CalculValoareProduse() const
 {
-	int suma = 0;
+	double suma = 0;
 	for (auto& g : m_catalog_mancare)
 	{
 		suma = suma + g.GetPret() * g.GetStoc();

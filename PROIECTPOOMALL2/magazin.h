@@ -31,6 +31,6 @@ public:
 	virtual void AfiseazaAngajat();
 	virtual void ModificaStoc(int id,int cantitate) = 0;
 	virtual int GetStoc(int id) = 0;
-	virtual int CalculValoareProduse() const  = 0;
+	virtual double CalculValoareProduse() const  = 0;
 };
 std::ostream& operator<<(std::ostream& os, const Magazin& m);

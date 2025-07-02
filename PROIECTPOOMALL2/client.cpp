@@ -1,7 +1,7 @@
 #include "client.h"
-
+#include<iostream>
 Client::Client(std::string nume, std::string prenume,
-	int varsta, std::string email, double credit)
+	int varsta, std::string email, double credit):Om()
 {
 	m_credit = credit;
 	m_nume = nume;
@@ -29,4 +29,14 @@ double Client::GetCredit() const
 Abonament Client::GetAbonament() const
 {
 	return m_abonament;
+}
+std::ostream& operator<<(std::ostream& os, const Client& c)
+{
+	os <<"|ID:"<<c.GetId()<< "|Nume:" << c.GetNume() << "|Prenume:" << c.GetPrenume() << "|Email:" << c.GetEmail() << "|Varsta" << c.GetVarsta()
+		<< "|Credit:" << c.GetCredit() << std::endl;
+	return os;
+}
+void Client::SetCredit(int credit)
+{
+	m_credit = credit;
 }

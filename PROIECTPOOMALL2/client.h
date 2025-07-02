@@ -16,4 +16,6 @@ public:
 		std::string email, Abonament Abonament, double credit = 0);
 	double GetCredit() const;
 	Abonament GetAbonament() const;
+	void SetCredit(int credit);
 };
+std::ostream& operator<<(std::ostream& os, const Client& c);

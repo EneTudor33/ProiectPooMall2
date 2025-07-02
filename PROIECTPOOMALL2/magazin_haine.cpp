@@ -81,9 +81,9 @@ int MagazinHaine::GetStoc(int id)
 	std::cout << "Produsul nu exista!" << std::endl;
 	return -1;
 }
-int MagazinHaine::CalculValoareProduse() const
+double MagazinHaine::CalculValoareProduse() const
 {
-	int suma = 0;
+	double suma = 0;
 	for (auto& g : m_catalog_haine)
 	{
 		suma = suma + g.GetPret() * g.GetStoc();

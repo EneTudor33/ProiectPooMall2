@@ -15,4 +15,5 @@ public:
 	std::string GetPrenume() const;
 	int GetVarsta() const;
 	std::string GetEmail() const;
+	int GetId() const;
 };

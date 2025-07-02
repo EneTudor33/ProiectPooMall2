@@ -21,3 +21,7 @@ std::string Om::GetEmail() const
 {
 	return m_email;
 }
+int Om::GetId() const
+{
+	return m_id;
+}
