@@ -16,5 +16,5 @@ public:
 	int GetNrCasa() const;
 	int GetBonus() const;
 	Casier(std::string nume, std::string prenume, int varsta, std::string email,
-		int nr_casa, int prag);
+		int nr_casa, int prag,int salariu);
 };

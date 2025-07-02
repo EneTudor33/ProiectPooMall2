@@ -10,4 +10,6 @@ public:
 	virtual int Tip() const override;
 	virtual void AdaugaProdus() override;
 	virtual void AfiseazaCatalog() override;
+	virtual void AdaugaAngajat() override;
+	virtual void AfiseazaAngajat() override;
 };

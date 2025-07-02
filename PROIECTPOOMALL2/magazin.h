@@ -1,4 +1,8 @@
 #pragma once
+#include"casier.h"
+#include "bucatar.h"
+#include "securitate.h"
+#include "manager.h"
 #include<string>
 #include<vector>
 #include<iostream>
@@ -9,6 +13,9 @@ protected:
 	bool m_e_deschis;//vreau aici sa adaptez sa verifice asta in timp real
 	static int m_next_id;
 	const int m_id;
+	std::vector<Casier> m_echipa_casieri;
+	std::vector<Securitate>  m_echipa_securitate;
+	std::vector<Manager>  m_echipa_manageri;
 public:
 	Magazin();
 	virtual ~Magazin() = default;
@@ -20,5 +27,7 @@ public:
 	virtual int Tip() const = 0;
 	virtual void AdaugaProdus() = 0;
 	virtual void AfiseazaCatalog() = 0;
+	virtual void AdaugaAngajat();
+	virtual void AfiseazaAngajat();
 };
 std::ostream& operator<<(std::ostream& os, const Magazin& m);

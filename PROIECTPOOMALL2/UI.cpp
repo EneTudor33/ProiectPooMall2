@@ -8,7 +8,7 @@ void MainMenu()
 		<< std::endl;
 	std::cout << "1.Gestioneaza Magazinele" << std::endl;
 	std::cout << "2.Gestioneaza Cataloagele" << std::endl;
-	std::cout << "3.Gestioneaza Clientii" << std::endl;
+	std::cout << "3.Gestioneaza Angajatii" << std::endl;
 	std::cout << "4.Gestioneaza Produsele" << std::endl;
 	std::cout << "0.Iesi din program" << std::endl;
 }
@@ -24,6 +24,13 @@ void ShowCataloageMenu()
 	std::cout << "Ce ai dori sa gestionezi in privinta cataloagelor?" << std::endl;
 	std::cout << "1. Adauga produse in catalogul unui magazin" << std::endl;
 	std::cout << "2. Afiseaza catalogul unui magazin" << std::endl;
+	std::cout << "0. Inapoi" << std::endl;
+}
+void ShowAngajatiMenu()
+{
+	std::cout << "Ce ai dori sa gestionezi in privinta angajatilor?" << std::endl;
+	std::cout << "1. Adauga angajati in echipa unui magazin" << std::endl;
+	std::cout << "2. Afiseaza angajatii unui magazin" << std::endl;
 	std::cout << "0. Inapoi" << std::endl;
 }
 void MagazinMenu(Mall& mall)
@@ -111,7 +118,62 @@ void MagazinMenu(Mall& mall)
 }
 void AngajatMenu(Mall& mall)
 {
-
+	bool back = false;
+	while (!back)
+	{
+		ShowAngajatiMenu();
+		int op;
+		std::cin >> op;
+		std::cin.ignore();
+		switch (op)
+		{
+		case 1:
+		{
+			mall.AfisMagazin();
+			std::cout << "ID-ul magazinului caruia vrei sa ii adaugi un angajat:" << std::endl;
+			int id;
+			std::cin >> id;
+			std::cin.ignore();
+			std::shared_ptr<Magazin> magazin = mall.GetMagazinID(id);
+			if (!magazin)
+			{
+				std::cout << "Acest magazin nu exista!" << std::endl;
+			}
+			else
+			{
+				magazin->AdaugaAngajat();
+			}
+			break;
+		}
+		case 2:
+		{
+			mall.AfisMagazin();
+			std::cout << "ID-ul magazinului caruia vrei sa ii adaugi un angajat:" << std::endl;
+			int id;
+			std::cin >> id;
+			std::cin.ignore();
+			std::shared_ptr<Magazin> magazin = mall.GetMagazinID(id);
+			if (!magazin)
+			{
+				std::cout << "Acest magazin nu exista!" << std::endl;
+			}
+			else
+			{
+				magazin->AfiseazaAngajat();
+			}
+			break;
+		}
+		case 0:
+		{
+			back = true;
+			break;
+		}
+		default:
+		{
+			std::cout << "Optiune invalida!" << std::endl;
+		}
+		}
+	}
 }
 void ClientMenu(Mall& mall)
 {
@@ -200,7 +262,7 @@ void RunUI(Mall& mall)
 		}
 		case 3:
 		{
-			ClientMenu(mall);
+			AngajatMenu(mall);
 			break;
 		}
 		case 4:

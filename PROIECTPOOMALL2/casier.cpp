@@ -13,7 +13,7 @@ int Casier::GetBonus() const
 	return m_bonus;
 }
 Casier::Casier(std::string nume, std::string prenume, int varsta, std::string email,
-	int nr_casa, int prag) :Angajat()
+	int nr_casa, int prag,int salariu) :Angajat()
 {
 	m_nume = nume;
 	m_prenume = prenume;
@@ -21,5 +21,6 @@ Casier::Casier(std::string nume, std::string prenume, int varsta, std::string em
 	m_email = email;
 	m_nr_casa = nr_casa;
 	m_prag = prag;
+	m_salariu = salariu;
 }
 

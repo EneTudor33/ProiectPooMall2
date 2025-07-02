@@ -7,6 +7,7 @@ class MagazinMancare :virtual public Magazin {
 protected:
 	std::vector<Mancare> m_catalog_mancare;//daca e pe meniu nu inseamna ca e si pe stoc
 	std::vector<Bautura> m_catalog_bauturi;
+	std::vector<Bucatar> m_echipa_bucatari;
 public:
 	MagazinMancare(std::string nume, int etaj, bool e_deschis);
 	std::vector<Mancare> GetCatalogMancare() const;
@@ -14,4 +15,6 @@ public:
 	virtual int Tip() const override;
 	virtual void AdaugaProdus() override;
 	virtual void AfiseazaCatalog() override;
+	virtual void AdaugaAngajat() override;
+	virtual void AfiseazaAngajat() override;
 };
